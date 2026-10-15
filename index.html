@@ -33,6 +33,15 @@ button:active{transform:scale(.97)}
 .gr{font-size:26px;font-weight:800;margin:18px 0 0}.gr u{color:var(--ac);text-decoration:underline dotted;cursor:pointer}
 .line{height:4px;background:var(--line);border-radius:9px;margin:12px 0;overflow:hidden}.line i{display:block;height:100%;background:var(--ac);transition:width .5s}
 .ring{display:block;margin:6px auto;width:100%;max-width:300px}
+.dial{position:relative;width:min(100%,300px);aspect-ratio:1;margin:8px auto}
+.dial svg{position:absolute;inset:0;width:100%;height:100%}
+.dial circle.perf{fill:none;stroke:var(--line);stroke-width:12;transform-origin:150px 150px}
+.dial circle.spin{animation:sp 6s linear infinite}
+@keyframes sp{to{transform:rotate(360deg)}}
+.dial circle.p{fill:none;stroke:var(--ac);stroke-width:14;stroke-linecap:round;transform:rotate(-90deg);transform-origin:150px 150px}
+.dial circle.t{fill:none;stroke:#191E29;stroke-width:14}
+.dial .mid{position:absolute;inset:0;display:grid;place-items:center}
+.dial .big{font:800 54px Poppins,sans-serif;font-variant-numeric:tabular-nums;color:var(--tx)}
 .stats{display:flex;border:1.5px solid var(--line);border-radius:20px;padding:14px 0;margin:10px 0 16px;background:var(--card)}
 .stats div{flex:1;text-align:center;font-size:12px;color:var(--mu)}.stats b{display:block;color:var(--tx);font-size:20px}
 .stats div+div{border-left:1px solid var(--line)}
@@ -123,7 +132,14 @@ plan(){const d=DAYS[U.day];return`<h2 style="margin-top:6px">এই সপ্ত
 <h2>পানির অ্যালার্ম</h2><input type="time" id="wal" value="${S.wal}"><button class="btn out" style="margin-top:10px" data-a="cal2">💧 Calendar-এ বসাও</button><button class="btn out" style="margin-top:10px" data-a="nf">${S.nf?'🔔 নোটিফিকেশন চালু (বন্ধ করুন)':'🔔 অ্যাপ খোলা থাকলে নোটিফিকেশন'}</button><p class="mu" style="margin-top:8px">নোটিফিকেশন শুধু অ্যাপ খোলা থাকলে আসে; কিছু ফোনে নাও চলতে পারে।</p>
 <h2>ডাটা ব্যাকআপ</h2><p class="mu">প্রগ্রেস শুধু এই ব্রাউজারে সেভ থাকে। মাঝেমধ্যে Backup কপি করে নিজের নোটে রাখুন।</p><div class="two"><button class="btn out" data-a="bk">Backup কপি</button><button class="btn out" data-a="rb">Restore</button></div>`},
 focus(){const f=S.fm[dk()]||0;return`<h1>Focus</h1><p class="mu">একটাই কাজ। ফোন দূরে। টাইমার চলার সময় অ্যাপ খোলা রাখুন।</p>
-<svg class="ring" viewBox="0 0 300 300"><circle cx="150" cy="150" r="142" fill="none" stroke="#292E3A" stroke-width="10" stroke-dasharray="2.4 7"/><circle cx="150" cy="150" r="112" fill="#080A0F"/><circle id="fa" cx="150" cy="150" r="112" fill="none" stroke="#F5C542" stroke-width="11" stroke-linecap="round" stroke-dasharray="${C}" stroke-dashoffset="${C*(1-FS.left/(FS.min*60))}" transform="rotate(-90 150 150)"/><text id="tm" x="150" y="170" text-anchor="middle" font-size="54" font-weight="800" fill="#fff" font-family="Poppins,sans-serif">${fmt(FS.left)}</text></svg>
+<div class="dial">
+<svg viewBox="0 0 300 300" aria-hidden="true">
+<circle class="perf ${FS.run?'spin':''}" id="fperf" cx="150" cy="150" r="138" pathLength="72" stroke-dasharray=".42 .58"/>
+<circle class="t" cx="150" cy="150" r="108"/>
+<circle class="p" id="fp" cx="150" cy="150" r="108" pathLength="100" stroke-dasharray="${(FS.left/(FS.min*60))*100} 100"/>
+</svg>
+<div class="mid"><span class="big" id="tm">${fmt(FS.left)}</span></div>
+</div>
 <div class="chips" style="justify-content:flex-start">${[15,25,45].map(m=>`<button class="pill ${FS.min==m?'on':''}" data-a="fmin" data-v="${m}">${m} মিনিট</button>`).join('')}</div>
 <div class="two"><button class="btn gold" data-a="fgo">${FS.run?'থামাও':'শুরু করো'}</button><button class="btn out" data-a="frst">রিসেট</button></div>${f?`<p class="mu" style="margin-top:14px">আজ সম্পন্ন Focus: ${f} মিনিট</p>`:''}`},
 shield(){const t=dk(),a=S.sh[t]||[];return`<h1>Habit Shield</h1><p class="mu">আজ ${a.length}/5টি shield habit checked</p><div class="line"><i style="width:${a.length*20}%"></i></div>${SH.map((s,i)=>tk(a.includes(i),'shk',i,`<p>${s[0]}</p><small>${s[1]}</small>`)).join('')}
@@ -172,7 +188,7 @@ w:v=>{const d=dk();S.water[d]=Math.max(0,(S.water[d]||0)+ +v)},goal:v=>S.goal=Ma
 exp:()=>{const j=JSON.stringify(S,null,2);$('#js').value=j;try{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([j],{type:'application/json'}));a.download='moineiq-backup-'+dk()+'.json';a.click()}catch(e){}toast('Export হয়েছে');return false},
 imp:()=>{try{const r=JSON.parse($('#js').value);const ok=r&&r.v===2&&Array.isArray(r.missions)&&r.missions.length>=3&&r.missions.every(m=>m&&typeof m.id==='string'&&typeof m.t==='string'&&typeof m.xp==='number')&&r.aw&&Object.values(r.aw).every(n=>typeof n==='number')&&Array.isArray(r.log);if(!ok)throw 0;S=Object.assign(structuredClone(DEF),r);toast('Restore সফল হয়েছে ✓')}catch(e){toast('ভুল ফাইল। আগের ডেটা অক্ষত আছে।');return false}},
 rst:()=>{if(confirm('সব ডেটা মুছে যাবে। নিশ্চিত?'))S=structuredClone(DEF);else return false}};
-function tick(){FS.left=Math.max(0,Math.round((FS.end-Date.now())/1000));if(FS.left<=0){clearInterval(FS.id);FS.run=false;S.fm[dk()]=(S.fm[dk()]||0)+FS.min;FS.left=FS.min*60;save();toast('Focus session শেষ 🎉');render();return}const e=$('#tm'),a=$('#fa');if(e)e.textContent=fmt(FS.left);if(a)a.style.strokeDashoffset=C*(1-FS.left/(FS.min*60))}
+function tick(){FS.left=Math.max(0,Math.round((FS.end-Date.now())/1000));if(FS.left<=0){clearInterval(FS.id);FS.run=false;S.fm[dk()]=(S.fm[dk()]||0)+FS.min;FS.left=FS.min*60;save();toast('Focus session শেষ 🎉');render();return}const e=$('#tm'),a=$('#fp');if(e)e.textContent=fmt(FS.left);if(a)a.setAttribute('stroke-dasharray',(FS.left/(FS.min*60)*100)+' 100')}
 function say(t){if(!('speechSynthesis' in window)){toast('এই ব্রাউজারে শোনার সুবিধা নেই');return}speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang='en-US';u.rate=.85;speechSynthesis.speak(u)}
 function gcal(title,det,hm,dur,rec){const q=hm.split(':').map(Number),s=new Date(),f=d=>d.getFullYear()+pad(d.getMonth()+1)+pad(d.getDate())+'T'+pad(d.getHours())+pad(d.getMinutes())+'00';s.setHours(q[0],q[1],0,0);if(s<new Date())s.setDate(s.getDate()+1);const e=new Date(s.getTime()+dur*6e4);window.open('https://calendar.google.com/calendar/render?action=TEMPLATE&text='+encodeURIComponent(title)+'&details='+encodeURIComponent(det)+'&dates='+f(s)+'/'+f(e)+'&ctz='+encodeURIComponent(Intl.DateTimeFormat().resolvedOptions().timeZone)+(rec?'&recur=RRULE:FREQ=DAILY':''),'_blank')}
 const NL={};
