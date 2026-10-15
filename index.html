@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#080A0F">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="MOINEIQ">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>MOINEIQ: Build Better Days</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#080A0F;--card:#11151F;--el:#191E29;--line:#292E3A;--tx:#F5F6FA;--mu:#A4AABB;--ac:#F5C542;--ac2:#FFD95A;color-scheme:dark}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.5 Poppins,"Hind Siliguri",system-ui,sans-serif;padding:env(safe-area-inset-top,0) 0 calc(96px + env(safe-area-inset-bottom,0))}
+.col{max-width:444px;margin:0 auto;padding:16px 14px}
+h1{font-size:22px;font-weight:800;margin:6px 0 4px}h2{font-size:20px;font-weight:800;margin:26px 0 8px}
+.mu{color:var(--mu);font-size:14px;margin:0 0 12px}
+button{font:inherit;cursor:pointer;color:var(--tx);background:none;border:1.5px solid var(--line);border-radius:999px;padding:10px 18px;transition:all .25s ease}
+button:active{transform:scale(.97)}
+.pill.on{background:var(--ac);color:#15110a;border-color:var(--ac);font-weight:700}
+.btn{display:block;width:100%;border-radius:18px;padding:16px;font-weight:800;text-align:center}
+.gold{background:var(--ac);color:#15110a;border-color:var(--ac)}.out{border-color:var(--ac);color:var(--ac)}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin:10px 0}.two{display:flex;gap:10px;margin-top:10px}.two .btn{flex:1}
+.hd{display:flex;align-items:center;gap:12px}.hd b{flex:1}
+.brand{font-weight:800;letter-spacing:.14em;font-size:22px;line-height:1}.brand small{display:block;font-size:9px;letter-spacing:.3em;color:var(--mu);font-weight:500;margin-top:6px}
+.lvl{border:1.5px solid var(--line);border-radius:14px;padding:6px 18px;text-align:center;font-size:11px;color:var(--mu)}.lvl b{display:block;color:var(--ac);font-size:20px;line-height:1.1}
+.gr{font-size:26px;font-weight:800;margin:18px 0 0}.gr u{color:var(--ac);text-decoration:underline dotted;cursor:pointer}
+.line{height:4px;background:var(--line);border-radius:9px;margin:12px 0;overflow:hidden}.line i{display:block;height:100%;background:var(--ac);transition:width .5s}
+.ring{display:block;margin:6px auto;width:100%;max-width:300px}
+.stats{display:flex;border:1.5px solid var(--line);border-radius:20px;padding:14px 0;margin:10px 0 16px;background:var(--card)}
+.stats div{flex:1;text-align:center;font-size:12px;color:var(--mu)}.stats b{display:block;color:var(--tx);font-size:20px}
+.stats div+div{border-left:1px solid var(--line)}
+.cur{border:1.5px solid var(--ac);border-radius:22px;padding:16px;background:var(--card);box-shadow:0 0 30px rgba(245,197,66,.08)}
+.cur small{color:var(--ac);font-weight:700;display:block;margin-top:4px}.cur h3{margin:2px 0 4px;font-size:21px;font-weight:800}.cur p{color:var(--mu);margin:0 0 16px}
+.row{display:flex;align-items:center;gap:12px;padding:14px 4px;border-bottom:1px solid var(--line)}.row span{flex:1}.row em{font-style:normal;color:var(--ac);font-weight:700;font-size:14px}
+.cir,.cb{width:28px;height:28px;border:2px solid #3a4260;flex:none;display:grid;place-items:center;color:#15110a;font-weight:800;transition:all .25s;background:#1b2030}
+.cir{border-radius:50%;background:none}.cb{border-radius:7px}.on>.cir,.on>.cb,.cir.on,.cb.on{background:var(--ac);border-color:var(--ac)}
+.row.on span{color:var(--mu);text-decoration:line-through}
+.sh{display:flex;gap:14px;padding:12px 4px;border-bottom:1px solid var(--line);cursor:pointer}.sh p{margin:0;font-size:15px}.sh small{color:var(--mu)}
+.wk{display:flex;gap:10px;overflow-x:auto;padding:6px 2px 10px}
+.wk button{flex:none;width:76px;border-radius:16px;padding:10px 4px;background:var(--card);font-size:12px;color:var(--mu)}.wk button b{display:block;font-size:22px;margin:2px 0}.wk .on{border:2px solid var(--ac);box-shadow:0 0 16px rgba(245,197,66,.22);color:var(--tx)}
+input,select,textarea{font:inherit;width:100%;background:var(--card);color:var(--tx);border:1.5px solid var(--line);border-radius:16px;padding:14px}
+textarea{min-height:96px;resize:vertical}
+.card{background:var(--card);border:1.5px solid var(--line);border-radius:20px;padding:16px;margin:10px 0}
+.hub{display:flex;align-items:center;gap:14px;width:100%;text-align:left;border-radius:20px;padding:16px;background:var(--card);margin-bottom:10px}.hub i{font-style:normal;font-size:26px}.hub span{flex:1}.hub small{display:block;color:var(--mu)}
+.big{font-size:48px;font-weight:800;color:var(--ac);text-align:center}
+.tag{display:inline-block;font-size:12px;padding:2px 10px;border-radius:99px;border:1px solid var(--line);color:var(--mu);margin-right:6px}
+#tm{font:800 54px Poppins,sans-serif}
+nav{position:fixed;left:0;right:0;bottom:0;display:flex;background:#080a0ff2;backdrop-filter:blur(12px);border-top:1px solid var(--line);padding:8px 0 calc(8px + env(safe-area-inset-bottom,0));z-index:10}
+nav button{flex:1;border:0;border-radius:0;font-size:13px;color:#cfd6ea;padding:4px 0;line-height:1.3}nav button i{display:block;font-style:normal;font-size:24px}nav .on{color:var(--ac);font-weight:700}
+#toast{position:fixed;left:50%;bottom:calc(100px + env(safe-area-inset-bottom,0));transform:translateX(-50%);background:var(--ac);color:#15110a;font-weight:700;padding:10px 18px;border-radius:99px;opacity:0;transition:opacity .3s;pointer-events:none;z-index:20}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+#splash{position:fixed;inset:0;background:#080A0F;display:grid;place-items:center;z-index:50;transition:opacity .6s}#splash img{width:min(72vw,340px);animation:rise .9s ease both}@keyframes rise{from{opacity:0;transform:translateY(12px) scale(.97)}}
+#toast{max-width:90vw;text-align:center}.brandimg{height:40px;width:auto;display:block}.brand{font-size:20px}
+@media(prefers-reduced-motion:reduce){#splash img{animation:none}}
+</style>
+</head>
+<body>
+<div id="splash"></div><div class="col" id="app"></div><div id="toast"></div><nav id="nav"></nav>
+<script>
+const LOGO='logo-full.png',MARK='logo-mark.png',KEY='moineiq.v2',$=s=>document.querySelector(s);
+const E=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const pad=n=>String(n).padStart(2,'0'),dk=d=>{d=d||new Date();return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate())},ago=n=>{const d=new Date();d.setDate(d.getDate()-n);return dk(d)};
+const DEF={v:2,name:'Moin',missions:[
+{id:'m1',ic:'🎬',t:'Premiere Pro Practice',d:'Modern Luxury Home Tour-এ আজকের একটি editing skill অনুশীলন করুন।',xp:50},
+{id:'m2',ic:'📁',t:'Portfolio Proof',d:'আজকের কাজের একটি screenshot বা নোট সংরক্ষণ করুন।',xp:30},
+{id:'m3',ic:'🗣️',t:'English Practice',d:'আজকের ৫টি শব্দ ও একটি client বাক্য অনুশীলন করুন।',xp:20},
+{id:'m4',ic:'🌐',t:'LinkedIn Community',d:'একটি পোস্ট পড়ুন ও অর্থপূর্ণ মন্তব্য করুন।',xp:25},
+{id:'m5',ic:'🧭',t:'Daily Review',d:'আজ কী শিখলেন ও কালকের প্রথম কাজ কী, লিখে রাখুন।',xp:15}],
+aw:{},stage:'Rough Cut',fm:{},sh:{},refl:{},track:'Premiere Pro',road:{},proj:{},log:[],eng:{},water:{},goal:8,al:'10:00',wal:'12:00',ln:0,nf:0};
+let S,U={tab:'home',sub:'',day:(new Date().getDay()+6)%7};
+const FS={min:15,left:900,run:false,end:0,id:0},C=2*Math.PI*112;
+function load(){try{const r=JSON.parse(localStorage.getItem(KEY));S=r&&r.v===2?Object.assign(structuredClone(DEF),r):structuredClone(DEF)}catch(e){S=structuredClone(DEF)}}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){toast('সংরক্ষণ করা যায়নি')}}
+function toast(m){const e=$('#toast');e.textContent=m;e.style.opacity=1;clearTimeout(toast.t);toast.t=setTimeout(()=>e.style.opacity=0,1900)}
+load();
+const DAYS=[['সোম','🎬','Clean cuts','Clean cuts: shot কাটা ও trim'],['মঙ্গল','⏰','Pacing','Pacing: cut-এর ছন্দ'],['বুধ','📝','Text','Text: title ও caption'],['বৃহঃ','🎨','Color','Color: basic correction'],['শুক্র','🔊','Sound','Sound: music ও level'],['শনি','📁','Portfolio','Portfolio: export ও presentation'],['রবি','🧭','Review','Review: সাপ্তাহিক পর্যালোচনা']];
+const STAGES={'Rough Cut':[["I'm refining the cuts and pacing.",'আমি কাট ও ভিডিওর গতি আরও ভালো করছি।','Editing progress update'],['I have trimmed the clips to fit 30 seconds.','আমি ৩০ সেকেন্ডে আনতে ক্লিপ ছেঁটেছি।','Editing progress update']],'Fine Cut':[["I'm polishing the transitions.",'আমি transition আরও মসৃণ করছি।','Editing progress update'],['Could you check the timing of the text?','text-এর সময়টা কি একটু দেখবেন?','Asking the client']],'Color':[["I'm correcting the color and exposure.",'আমি রং ও exposure ঠিক করছি।','Editing progress update'],['The look is warm and bright, like a real home.','লুকটি উষ্ণ ও উজ্জ্বল, ঠিক বাস্তব বাড়ির মতো।','Describing the style']],'Sound':[["I'm balancing the music levels.",'আমি মিউজিকের লেভেল ঠিক করছি।','Editing progress update'],['The music stays low under the voice.','ভয়েসের নিচে মিউজিক কম রাখা হয়েছে।','Describing the audio']],'Export':[['The final video is ready for your review.','ফাইনাল ভিডিও আপনার রিভিউয়ের জন্য তৈরি।','Delivery message'],['I can include one round of revisions.','আমি এক দফা সংশোধন করে দিতে পারি।','Client communication']]};
+const SH=[['Focus session-এ ফোন দূরে রেখেছি','অকারণ scrolling-এর বদলে একটি কাজ'],['Perfect হওয়ার অপেক্ষা না করে শুরু করেছি','কমপক্ষে ১০ মিনিট চেষ্টা'],['সিদ্ধান্তের আগে একটু থেমে plan দেখেছি','কারো অনুরোধে সঙ্গে সঙ্গে হ্যাঁ বলার আগে'],['Focus নষ্ট হয় এমন জায়গা এড়িয়ে চলেছি','লক্ষ্যকে অগ্রাধিকার দিয়েছি'],['Project save করে কাজের প্রমাণ রেখেছি','ছোট progress-ও progress']];
+const TRK=['Premiere Pro','After Effects','DaVinci Resolve','CapCut'];
+const STG=['Fundamentals','Editing workflow','Intermediate techniques','Advanced techniques','Real-world projects','Client-ready production','AI-assisted workflow','Portfolio development','Professional delivery'];
+const STEPS=['Planning','Footage Collection','Shot Selection','Rough Cut','Fine Cut','Audio','Color','Text','Review','Export','Portfolio Presentation'];
+const W=[['revision','সংশোধন'],['deliverable','চূড়ান্ত জমা দেওয়ার কাজ'],['turnaround','কাজ শেষ করার সময়'],['footage','ভিডিও ফুটেজ'],['draft','প্রাথমিক খসড়া'],['feedback','মতামত'],['deadline','শেষ সময়'],['approve','অনুমোদন করা'],['export','ভিডিও আউটপুট করা'],['brief','সংক্ষিপ্ত নির্দেশনা'],['trim','ছেঁটে ছোট করা'],['pacing','গতির ছন্দ'],['clarify','স্পষ্ট করা'],['quote','মূল্য প্রস্তাব'],['invoice','বিল']];
+const PH=['I will send the first draft by Friday.','Could you share your feedback on the draft?','The final video is ready for your review.','I can include one round of revisions.','Could you clarify the style you prefer?','The price includes two revisions.','Please let me know if you want any changes.'];
+const xp=()=>Object.values(S.aw).reduce((a,b)=>a+b,0);
+const cnt=d=>Object.keys(S.aw).filter(k=>k.startsWith(d+'|')).length;
+function streak(){let n=0,i=cnt(dk())?0:1;while(cnt(ago(i))){n++;i++}return n}
+const fmt=s=>pad(Math.floor(s/60))+':'+pad(s%60);
+const tk=(on,a,v,x)=>`<div class="sh" data-a="${a}" data-v="${v}"><div class="cb ${on?'on':''}">${on?'✓':''}</div><div>${x}</div></div>`;
+const back='<button data-a="sub" data-v="" style="margin-bottom:6px">‹ আরও</button>';
+const chips=(L,cur,a)=>`<div class="chips">${L.map(t=>`<button class="pill ${t==cur?'on':''}" data-a="${a}" data-v="${t}">${t}</button>`).join('')}</div>`;
+const words=()=>{const n=Math.floor(Date.now()/864e5);return[0,1,2,3,4].map(i=>W[(n*5+i)%W.length])};
+
+const wk7=()=>[6,5,4,3,2,1,0].map(i=>{const d=ago(i),x=Object.entries(S.aw).filter(k=>k[0].startsWith(d+'|')).reduce((t,k)=>t+k[1],0);return{d,x,n:cnt(d),f:S.fm[d]||0,l:['রবি','সোম','মঙ্গল','বুধ','বৃহঃ','শুক্র','শনি'][new Date(d+'T00:00:00').getDay()]}});
+function chart(a){const m=Math.max(10,...a.map(v=>v.x));return`<svg viewBox="0 0 320 150" role="img" aria-label="সাপ্তাহিক XP" style="width:100%"><defs><linearGradient id="gg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFD95A"/><stop offset="1" stop-color="#F5C542"/></linearGradient></defs>${a.map((v,i)=>{const h=v.x/m*90,x=12+i*44;return`<g><title>${v.l}: ${v.x} XP, ${v.n}টি মিশন</title><rect x="${x}" y="${110-h}" width="30" height="${Math.max(h,3)}" rx="6" fill="${v.x?'url(#gg)':'#292E3A'}"/><text x="${x+15}" y="130" text-anchor="middle" font-size="11" fill="#A4AABB">${v.l}</text>${v.x?`<text x="${x+15}" y="${104-h}" text-anchor="middle" font-size="10" fill="#F5F6FA">${v.x}</text>`:''}</g>`}).join('')}</svg>`}
+const skills=()=>TRK.map(n=>{const d=STG.filter((_,i)=>S.road[n+i]).length;return`<div style="margin:8px 0"><div class="hd" style="font-size:14px"><b style="font-weight:500">${n}</b><span class="mu" style="margin:0">${d}/${STG.length}</span></div><div class="line" style="margin:4px 0"><i style="width:${d/STG.length*100}%"></i></div></div>`}).join('');
+function best(){const ds=[...new Set(Object.keys(S.aw).map(k=>k.split('|')[0]))].sort();let b=0,c=0,p=null;ds.forEach(d=>{const t=new Date(d+'T00:00:00');c=p&&Math.round((t-p)/864e5)===1?c+1:1;p=t;b=Math.max(b,c)});return b}
+function ach(){const fm=Object.values(S.fm).reduce((a,b)=>a+b,0),pd=STEPS.filter((_,i)=>S.proj[i]).length;return[{id:'a1',t:'প্রথম মিশন',r:'যেকোনো একটি মিশন শেষ করুন',ok:xp()>0},{id:'a2',t:'৩ দিনের ধারাবাহিকতা',r:'পরপর ৩ দিন অন্তত একটি মিশন',ok:best()>=3},{id:'a3',t:'১০০ XP',r:'মোট ১০০ XP অর্জন করুন',ok:xp()>=100},{id:'a4',t:'প্রথম Focus session',r:'একটি Focus timer শেষ করুন',ok:fm>0},{id:'a5',t:'Shield ৫/৫',r:'একদিনে ৫টি habit চিহ্নিত করুন',ok:Object.values(S.sh).some(a=>a.length>=5)},{id:'a6',t:'প্রজেক্টের ৫ ধাপ',r:'Home Tour-এর ৫টি ধাপ শেষ করুন',ok:pd>=5}]}
+function homeExtra(){const a=wk7(),sx=a.reduce((t,v)=>t+v.x,0),fm=a.reduce((t,v)=>t+v.f,0),t=dk(),pd=STEPS.filter((_,i)=>S.proj[i]).length;
+return`<h2>এই সপ্তাহ</h2><div class="card">${chart(a)}<div class="hd mu" style="margin:6px 0 0"><b style="font-weight:500">XP ${sx}</b><span>Focus ${fm} মিনিট</span></div></div><h2>Skill progress</h2><div class="card">${skills()}</div>
+<h2>Current project</h2><div class="card"><b>Modern Luxury Home Tour</b><div class="line"><i style="width:${pd/STEPS.length*100}%"></i></div><div class="hd mu" style="margin:0"><b style="font-weight:500">${pd}/${STEPS.length} ধাপ</b><button data-a="go" data-v="proj" style="padding:6px 14px">খুলুন</button></div></div>
+<div class="card hd"><span style="font-size:26px">🤖</span><div style="flex:1"><b>AI Mentor</b><div class="mu" style="margin:0">এখনও সংযুক্ত নয়</div></div><button data-a="go" data-v="ai" style="padding:6px 14px">দেখুন</button></div>
+<h2>আজকের রুটিন</h2><div class="card mu" style="margin:0">Shield ${(S.sh[t]||[]).length}/5 · পানি ${S.water[t]||0}/${S.goal} · Focus ${S.fm[t]||0} মিনিট</div>`}
+const V={
+home(){const t=dk(),M=S.missions,dn=M.filter(m=>S.aw[t+'|'+m.id]),nx=M.find(m=>!S.aw[t+'|'+m.id]),x=xp(),p=dn.length/M.length,tx=dn.reduce((a,m)=>a+S.aw[t+'|'+m.id],0),h=new Date().getHours(),R=122,c=2*Math.PI*R;
+ return`<div class="hd"><img class="brandimg" src="${MARK}" alt="MOINEIQ"><div class="brand">MOINEIQ<small>BUILD BETTER DAYS</small></div><b></b><div class="lvl"><b>${Math.floor(x/100)+1}</b>Level</div></div>
+<div class="gr">Good ${h<12?'Morning':h<17?'Afternoon':'Evening'}, <u data-a="name">${E(S.name)}</u></div><p class="mu" style="margin:2px 0">${new Date().toLocaleDateString('bn-BD',{weekday:'long',day:'numeric',month:'long'})} · Small steps create big results.</p>${nx?`<p class="mu" style="margin:0 0 4px;color:var(--ac)">আজ ${M.length-dn.length}টি মিশন বাকি · পানি ${S.water[t]||0}/${S.goal}</p>`:''}<div class="line"><i style="width:${p*100}%"></i></div>
+<svg class="ring" viewBox="0 0 300 300" role="img" aria-label="${dn.length}/${M.length}"><circle cx="150" cy="150" r="142" fill="none" stroke="#292E3A" stroke-width="10" stroke-dasharray="2.4 7"/><circle cx="150" cy="150" r="${R}" fill="#11151F" stroke="#292E3A" stroke-width="2"/><circle cx="150" cy="150" r="${R}" fill="none" stroke="${p?'#F5C542':'#fff'}" stroke-width="9" stroke-linecap="round" stroke-dasharray="${Math.max(p,.1)*c} ${c}" transform="rotate(-90 150 150)" style="transition:all .6s"/><text x="150" y="168" text-anchor="middle" font-size="76" font-weight="800" fill="#fff" font-family="Poppins,sans-serif">${dn.length}/${M.length}</text><text x="150" y="198" text-anchor="middle" font-size="14" fill="#cbd3ea" font-family="Poppins,sans-serif">Missions Done · +${tx} XP</text></svg>
+<div class="stats"><div><b>${x}</b>Total XP</div><div><b>${Math.floor(x/100)+1}</b>Current Level</div><div><b>${streak()}</b>🔥 Day Streak</div></div>
+${nx?`<div class="cur"><div style="font-size:30px">${nx.ic}</div><small>এখন যে মিশন</small><h3>${E(nx.t)}</h3><p>${E(nx.d)}</p><button class="btn gold" data-a="md" data-v="${nx.id}">সম্পন্ন করলাম · +${nx.xp} XP</button><button class="btn out" style="margin-top:10px" data-a="cm" data-v="${nx.id}">📅 Calendar-এ যোগ করুন</button></div>`:'<div class="cur"><h3>আজকের সব মিশন শেষ ✓</h3><p style="margin:0">কাল আবার ছোট একটি ধাপ নিয়ে শুরু করুন।</p></div>'}
+<div class="card hd" style="margin:12px 0 4px"><span style="font-size:26px">💧</span><div style="flex:1"><b>পানি ${S.water[t]||0}/${S.goal} গ্লাস</b><div class="line" style="margin:6px 0 0"><i style="width:${Math.min(100,(S.water[t]||0)/S.goal*100)}%"></i></div></div><button data-a="w" data-v="-1" aria-label="পূর্বাবস্থা" style="padding:8px 14px">−</button><button class="pill on" data-a="w" data-v="1">+১</button></div><div style="margin-top:8px">${M.map(m=>`<div class="row ${S.aw[t+'|'+m.id]?'on':''}" data-a="md" data-v="${m.id}" style="cursor:pointer"><div class="cir">${S.aw[t+'|'+m.id]?'✓':''}</div><span>${m.ic} ${E(m.t)}</span><em>+${m.xp}</em><button data-a="cm" data-v="${m.id}" style="border:0;padding:2px 6px" aria-label="Calendar">📅</button></div>`).join('')}</div>${homeExtra()}`},
+plan(){const d=DAYS[U.day];return`<h2 style="margin-top:6px">এই সপ্তাহ</h2><div class="wk">${DAYS.map((x,i)=>`<button class="${i==U.day?'on':''}" data-a="day" data-v="${i}">Day ${i+1}<b>${x[1]}</b>${x[0]}<br>${x[2]}</button>`).join('')}</div><p class="mu">${d[3]}</p>
+<h2 style="margin-top:12px">Set Missions</h2><p class="mu">৩ থেকে ৭টি মিশন রাখা যায়। রিংও সেই অনুযায়ী ভাগ হবে।</p>${S.missions.map(m=>`<div class="row"><span>${m.ic} ${E(m.t)}</span><em>+${m.xp}</em><button data-a="cm" data-v="${m.id}" style="border:0;padding:4px 6px" aria-label="Calendar">📅</button><button data-a="mdel" data-v="${m.id}" style="border:0;padding:4px 8px" aria-label="মুছুন">✕</button></div>`).join('')}
+<div class="two" style="align-items:center"><input id="nm" placeholder="নতুন মিশনের নাম" maxlength="40"><select id="nx" style="width:90px">${[10,15,20,25,30,50].map(n=>`<option ${n==20?'selected':''}>${n}</option>`).join('')}</select></div><button class="btn out" style="margin-top:10px" data-a="madd">মিশন যোগ করো</button>
+<h2>বর্তমান ধাপ</h2>${chips(Object.keys(STAGES),S.stage,'stg')}<h2>English</h2>${(l=>`<div class="card"><b style="font-size:19px">${E(l[0])}</b><div class="mu" style="margin:2px 0">${l[1]}</div><i class="mu" style="font-size:13px">${l[2]}</i></div><div class="two"><button class="btn out" data-a="spk">🔊 শুনুন</button><button class="btn gold" data-a="nl">পরের লাইন</button></div>`)(STAGES[S.stage][S.ln%STAGES[S.stage].length])}
+<h2>রোজকার অ্যালার্ম</h2><input type="time" id="al" value="${S.al}"><button class="btn gold" style="margin-top:10px" data-a="cal1">Calendar-এ বসাও</button><p class="mu" style="margin-top:8px">Calendar খুললে শুধু Save চাপুন। অ্যাপ বন্ধ থাকলে নিজে বাজে না, তাই ফোনের Calendar অ্যালার্মই আসল রিমাইন্ডার।</p>
+<h2>পানির অ্যালার্ম</h2><input type="time" id="wal" value="${S.wal}"><button class="btn out" style="margin-top:10px" data-a="cal2">💧 Calendar-এ বসাও</button><button class="btn out" style="margin-top:10px" data-a="nf">${S.nf?'🔔 নোটিফিকেশন চালু (বন্ধ করুন)':'🔔 অ্যাপ খোলা থাকলে নোটিফিকেশন'}</button><p class="mu" style="margin-top:8px">নোটিফিকেশন শুধু অ্যাপ খোলা থাকলে আসে; কিছু ফোনে নাও চলতে পারে।</p>
+<h2>ডাটা ব্যাকআপ</h2><p class="mu">প্রগ্রেস শুধু এই ব্রাউজারে সেভ থাকে। মাঝেমধ্যে Backup কপি করে নিজের নোটে রাখুন।</p><div class="two"><button class="btn out" data-a="bk">Backup কপি</button><button class="btn out" data-a="rb">Restore</button></div>`},
+focus(){const f=S.fm[dk()]||0;return`<h1>Focus</h1><p class="mu">একটাই কাজ। ফোন দূরে। টাইমার চলার সময় অ্যাপ খোলা রাখুন।</p>
+<svg class="ring" viewBox="0 0 300 300"><circle cx="150" cy="150" r="142" fill="none" stroke="#292E3A" stroke-width="10" stroke-dasharray="2.4 7"/><circle cx="150" cy="150" r="112" fill="#080A0F"/><circle id="fa" cx="150" cy="150" r="112" fill="none" stroke="#F5C542" stroke-width="11" stroke-linecap="round" stroke-dasharray="${C}" stroke-dashoffset="${C*(1-FS.left/(FS.min*60))}" transform="rotate(-90 150 150)"/><text id="tm" x="150" y="170" text-anchor="middle" font-size="54" font-weight="800" fill="#fff" font-family="Poppins,sans-serif">${fmt(FS.left)}</text></svg>
+<div class="chips" style="justify-content:flex-start">${[15,25,45].map(m=>`<button class="pill ${FS.min==m?'on':''}" data-a="fmin" data-v="${m}">${m} মিনিট</button>`).join('')}</div>
+<div class="two"><button class="btn gold" data-a="fgo">${FS.run?'থামাও':'শুরু করো'}</button><button class="btn out" data-a="frst">রিসেট</button></div>${f?`<p class="mu" style="margin-top:14px">আজ সম্পন্ন Focus: ${f} মিনিট</p>`:''}`},
+shield(){const t=dk(),a=S.sh[t]||[];return`<h1>Habit Shield</h1><p class="mu">আজ ${a.length}/5টি shield habit checked</p><div class="line"><i style="width:${a.length*20}%"></i></div>${SH.map((s,i)=>tk(a.includes(i),'shk',i,`<p>${s[0]}</p><small>${s[1]}</small>`)).join('')}
+<p class="mu" style="margin-top:12px">বাজে অ্যাপ আটকাতে ফোনের নিজের ফিচার অন করুন: Android-এ Digital Wellbeing &gt; App timers, iPhone-এ Screen Time &gt; App Limits।</p><h2 style="margin-top:12px">আজকের reflection</h2>
+<textarea id="rf" placeholder="আজ কী করলাম? আগামীকালের প্রথম ছোট কাজ কী?">${E(S.refl[t]||'')}</textarea><div class="two"><button class="btn gold" data-a="shsave">Save</button><button class="btn out" data-a="shrst">আজ reset</button></div><p class="mu" style="margin-top:10px">Reflection শুধু এই ব্রাউজারে থাকে।</p>`},
+more(){if(U.sub)return V[U.sub]();return`<h1>আরও</h1><p class="mu">শেখা, প্রজেক্ট ও রুটিনের অতিরিক্ত টুল।</p>${[['ana','📈','Analytics ও Report','সাপ্তাহিক XP, focus, skill, achievement'],['ai','🤖','AI Mentor','এখনও সংযুক্ত নয়'],['road','🗺️','Roadmap','Software অনুযায়ী stage progress'],['proj','🎞️','Project Tracker','Modern Luxury Home Tour ও log'],['eng','💬','English ও পানি','দৈনিক শব্দ, client বাক্য, hydration'],['bak','💾','Backup ও Restore','JSON export / import'],['abt','ℹ️','About','MOINEIQ সম্পর্কে']].map(x=>`<button class="hub" data-a="sub" data-v="${x[0]}"><i>${x[1]}</i><span><b>${x[2]}</b><small>${x[3]}</small></span>›</button>`).join('')}`},
+road(){const n=S.track,d=STG.filter((_,i)=>S.road[n+i]).length;return`${back}<h1>Roadmap</h1>${chips(TRK,n,'trk')}<div class="card"><div class="hd"><b>${n}</b><span class="mu" style="margin:0">${d}/${STG.length}</span></div><div class="line"><i style="width:${d/STG.length*100}%"></i></div>${STG.map((s,i)=>tk(S.road[n+i],'rs',n+i,s)).join('')}</div><p class="mu">ধাপ নিজে চিহ্নিত করুন। প্রতিটি software-এর অগ্রগতি আলাদা সংরক্ষিত থাকে।</p>`},
+proj(){const d=STEPS.filter((_,i)=>S.proj[i]).length,tm=S.log.reduce((a,l)=>a+l.m,0);return`${back}<h1>Modern Luxury Home Tour</h1><p class="mu">9:16 · ৩০–৩৫ সেকেন্ড · Instagram ও Facebook Reels · Premiere Pro</p><div class="card"><div class="hd"><b>${d}/${STEPS.length} ধাপ</b><span class="mu" style="margin:0">${tm} মিনিট লগ</span></div><div class="line"><i style="width:${d/STEPS.length*100}%"></i></div>${STEPS.map((s,i)=>tk(S.proj[i],'ps',i,s)).join('')}</div>
+<h2>Log যোগ করুন</h2><select id="lt"><option>Mistake &amp; solution</option><option>Lesson learned</option><option>AI tool / prompt used</option><option>Feedback</option><option>Revision</option><option>Next action</option></select><textarea id="lx" style="margin:10px 0" placeholder="কী হলো?" maxlength="500"></textarea><div class="two"><input id="lm" type="number" min="0" placeholder="সময় (মিনিট)"><button class="btn gold" data-a="plog" style="flex:none;width:auto;padding:14px 22px">যোগ করুন</button></div>
+${S.log.length?S.log.slice().reverse().map(l=>`<div class="card"><span class="tag">${E(l.t)}</span><span class="tag">${l.d}</span>${l.m?`<span class="tag">${l.m} মিনিট</span>`:''}<p style="margin:8px 0">${E(l.x)}</p><button data-a="dlog" data-v="${l.id}" style="padding:6px 14px">মুছুন</button></div>`).join(''):'<p class="mu" style="margin-top:12px">এখনও কোনো log নেই।</p>'}`},
+eng(){const t=dk(),w=S.water[t]||0;return`${back}<h1>আজকের ৫টি শব্দ</h1><div class="card">${words().map(x=>`<div class="hd" style="padding:7px 0"><b style="color:var(--ac)">${x[0]}</b><span>${x[1]}</span><button data-a="sp" data-v="${x[0]}" style="padding:4px 12px" aria-label="শুনুন">🔊</button></div>`).join('')}</div><p style="font-size:17px"><span class="tag">Client বাক্য</span><br>${PH[Math.floor(Date.now()/864e5)%PH.length]} <button data-a="sp" data-v="${PH[Math.floor(Date.now()/864e5)%PH.length]}" style="padding:4px 12px">🔊 শুনুন</button></p><button class="btn ${S.eng[t]?'out':'gold'}" data-a="lrn">${S.eng[t]?'✓ শেখা হয়েছে (পূর্বাবস্থা)':'আজকের শব্দ শিখেছি'}</button>
+<h2>পানি</h2><div class="card"><div class="big">${w}<span class="mu" style="font-size:18px"> / ${S.goal} গ্লাস</span></div><div class="line"><i style="width:${Math.min(100,w/S.goal*100)}%"></i></div><div class="two"><button class="btn out" data-a="w" data-v="-1">− পূর্বাবস্থা</button><button class="btn gold" data-a="w" data-v="1">+ ১ গ্লাস</button></div></div>
+<div class="hd card"><b>দৈনিক লক্ষ্য</b><button data-a="goal" data-v="-1">−</button><b style="flex:none">${S.goal}</b><button data-a="goal" data-v="1">+</button></div><p class="mu">লক্ষ্য নিজের কাজ, আবহাওয়া ও শরীর অনুযায়ী বদলান। এটি চিকিৎসা পরামর্শ নয়।</p>${[0,1,2,3,4,5,6].map(i=>`<div class="hd mu" style="margin:0;padding:3px 0"><b style="font-weight:400">${ago(i)}</b>${S.water[ago(i)]||0} গ্লাস</div>`).join('')}`},
+ana(){const a=wk7(),pv=[13,12,11,10,9,8,7].reduce((t,i)=>t+Object.entries(S.aw).filter(k=>k[0].startsWith(ago(i)+'|')).reduce((x,k)=>x+k[1],0),0),sx=a.reduce((t,v)=>t+v.x,0),fm=a.reduce((t,v)=>t+v.f,0),A=ach();
+return`${back}<h1>Analytics ও Report</h1>${sx||pv?'':'<p class="mu">এখনও ডেটা নেই। প্রথম মিশন শেষ করলে চার্ট ও রিপোর্ট শুরু হবে।</p>'}<div class="card">${chart(a)}</div><div class="stats"><div><b>${sx}</b>এই সপ্তাহ XP</div><div><b>${a.reduce((t,v)=>t+v.n,0)}</b>মিশন</div><div><b>${fm}</b>Focus মিনিট</div></div>
+<p class="mu">${pv>0?(sx>pv?`গত সপ্তাহের চেয়ে ${sx-pv} XP বেশি।`:sx<pv?`গত সপ্তাহের চেয়ে ${pv-sx} XP কম। ছোট একটি মিশন দিয়ে আবার শুরু করুন।`:'গত সপ্তাহের সমান XP।'):sx?'গত সপ্তাহের ডেটা নেই, তাই তুলনা করা যাচ্ছে না।':''}</p>
+<h2>Skill progress</h2><div class="card">${skills()}</div><h2>Achievements ${A.filter(x=>x.ok).length}/${A.length}</h2>${A.map(x=>`<div class="card hd" style="opacity:${x.ok?1:.55}"><span style="font-size:24px">${x.ok?'🏆':'🔒'}</span><div style="flex:1"><b>${x.t}</b><div class="mu" style="margin:0">${x.r}</div></div></div>`).join('')}`},
+ai(){return`${back}<h1>AI Mentor</h1><div class="card" style="border-color:var(--ac)"><b>এখনও সংযুক্ত নয়</b><p class="mu" style="margin:6px 0 0">এই সংস্করণে কোনো AI provider যুক্ত নেই, তাই কোনো উত্তর দেখানো হচ্ছে না। বানানো উত্তরকে AI বলে চালানো হবে না। AI চালু করতে secret API key রাখার জন্য একটি server function লাগবে (Vercel বা Netlify)।</p></div><p class="mu">পরিকল্পিত শেখার চক্র: Learn → Demonstrate → Practice → Review → Improve → Document → Portfolio</p>`},
+abt(){return`${back}<img src="${LOGO}" alt="MOINEIQ: Build Better Days" style="width:100%;max-width:320px;display:block;margin:10px auto"><p class="mu" style="text-align:center">Build Better Days · সংস্করণ 2.1</p><div class="card mu" style="margin:0">ডেটা শুধু এই ডিভাইসের ব্রাউজারে থাকে। AI, আবহাওয়া ও নামাজের সময় এখনও যুক্ত হয়নি।</div>`},
+bak(){return`${back}<h1>Backup ও Restore</h1><p class="mu">সব ডেটা শুধু এই ব্রাউজারে থাকে, অন্য ডিভাইসে সিঙ্ক হয় না। নিয়মিত Export করে রাখুন।</p><textarea id="js" style="min-height:160px;font:12px monospace" placeholder="Export করলে JSON এখানে আসবে। Restore করতে JSON পেস্ট করুন বা ফাইল বাছুন।"></textarea><input id="fl" type="file" accept=".json,application/json" style="margin:10px 0"><div class="two"><button class="btn gold" data-a="exp">Export</button><button class="btn out" data-a="imp">Restore</button></div><button class="btn" style="margin-top:10px;border:1.5px solid var(--line);color:var(--mu)" data-a="rst">সব ডেটা মুছুন</button>`}};
+
+const A={
+tab:v=>{U.tab=v;U.sub='';scrollTo(0,0)},sub:v=>{U.sub=v;scrollTo(0,0)},name:()=>{const n=prompt('আপনার নাম',S.name);if(n&&n.trim())S.name=n.trim().slice(0,20)},
+md:v=>{const k=dk()+'|'+v,m=S.missions.find(x=>x.id===v);if(!m)return;if(S.aw[k])delete S.aw[k];else{const b=ach().filter(a=>a.ok).map(a=>a.id);S.aw[k]=m.xp;const nw=ach().find(a=>a.ok&&!b.includes(a.id));toast('+'+m.xp+' XP · '+m.t+' সম্পন্ন'+(nw?' · 🏆 '+nw.t:''))}},go:v=>{U.tab='more';U.sub=v;scrollTo(0,0)},
+day:v=>U.day=+v,stg:v=>S.stage=v,
+mdel:v=>{if(S.missions.length<=3){toast('কমপক্ষে ৩টি মিশন রাখতে হবে');return false}S.missions=S.missions.filter(m=>m.id!==v)},
+madd:()=>{const n=$('#nm').value.trim();if(!n){toast('মিশনের নাম লিখুন');return false}if(S.missions.length>=7){toast('সর্বোচ্চ ৭টি মিশন');return false}S.missions.push({id:'c'+Date.now(),ic:'⭐',t:n.slice(0,40),d:'আপনার নিজের মিশন।',xp:+$('#nx').value})},
+spk:()=>{const L=STAGES[S.stage];say(L[S.ln%L.length][0]);return false},sp:v=>{say(v);return false},nl:()=>{S.ln++},
+cal1:()=>{gcal('MOINEIQ: আজকের মিশন',S.missions.map(m=>'• '+m.t+' (+'+m.xp+' XP)').join('\n'),($('#al')||{}).value||S.al,45,1);return false},
+cal2:()=>{gcal('💧 পানি খান','এক গ্লাস পানি খান, তারপর MOINEIQ-এ লগ করুন।',($('#wal')||{}).value||S.wal,10,1);return false},
+cm:v=>{const m=S.missions.find(x=>x.id===v);if(m)gcal('MOINEIQ: '+m.t,m.d,S.al,30,0);return false},
+nf:()=>{if(S.nf){S.nf=0;return}if(typeof Notification==='undefined'){toast('এই ব্রাউজারে নোটিফিকেশন নেই');return false}Notification.requestPermission().then(p=>{S.nf=p==='granted'?1:0;save();render();toast(S.nf?'চালু হয়েছে (অ্যাপ খোলা থাকলে)':'অনুমতি দেওয়া হয়নি')});return false},
+bk:()=>{if(navigator.clipboard)navigator.clipboard.writeText(JSON.stringify(S)).then(()=>toast('Backup কপি হয়েছে'),()=>toast('কপি হয়নি। আরও > Backup ব্যবহার করুন'));else toast('কপি সম্ভব নয়');return false},
+rb:()=>{U.tab='more';U.sub='bak';scrollTo(0,0)},
+fmin:v=>{if(!FS.run){FS.min=+v;FS.left=FS.min*60}},
+fgo:()=>{if(FS.run){FS.left=Math.max(0,Math.round((FS.end-Date.now())/1000));FS.run=false;clearInterval(FS.id)}else{if(FS.left<=0)FS.left=FS.min*60;FS.end=Date.now()+FS.left*1000;FS.run=true;FS.id=setInterval(tick,250)}},
+frst:()=>{clearInterval(FS.id);FS.run=false;FS.left=FS.min*60},
+shk:v=>{const t=dk(),a=S.sh[t]||(S.sh[t]=[]),i=a.indexOf(+v);i>-1?a.splice(i,1):a.push(+v)},
+shsave:()=>{toast('Reflection সংরক্ষিত ✓');return false},
+shrst:()=>{if(confirm('আজকের shield ও reflection মুছে যাবে। নিশ্চিত?')){delete S.sh[dk()];delete S.refl[dk()]}},
+trk:v=>S.track=v,rs:v=>S.road[v]=!S.road[v]||undefined,ps:v=>S.proj[v]=!S.proj[v]||undefined,
+plog:()=>{const x=$('#lx').value.trim();if(!x){toast('কিছু লিখুন');return false}S.log.push({id:Date.now(),t:$('#lt').value,x:x,m:Math.max(0,+$('#lm').value||0),d:dk()})},
+dlog:v=>S.log=S.log.filter(l=>l.id!=v),
+lrn:()=>{const t=dk();S.eng[t]=!S.eng[t]||undefined},
+w:v=>{const d=dk();S.water[d]=Math.max(0,(S.water[d]||0)+ +v)},goal:v=>S.goal=Math.min(30,Math.max(1,S.goal+ +v)),
+exp:()=>{const j=JSON.stringify(S,null,2);$('#js').value=j;try{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([j],{type:'application/json'}));a.download='moineiq-backup-'+dk()+'.json';a.click()}catch(e){}toast('Export হয়েছে');return false},
+imp:()=>{try{const r=JSON.parse($('#js').value);const ok=r&&r.v===2&&Array.isArray(r.missions)&&r.missions.length>=3&&r.missions.every(m=>m&&typeof m.id==='string'&&typeof m.t==='string'&&typeof m.xp==='number')&&r.aw&&Object.values(r.aw).every(n=>typeof n==='number')&&Array.isArray(r.log);if(!ok)throw 0;S=Object.assign(structuredClone(DEF),r);toast('Restore সফল হয়েছে ✓')}catch(e){toast('ভুল ফাইল। আগের ডেটা অক্ষত আছে।');return false}},
+rst:()=>{if(confirm('সব ডেটা মুছে যাবে। নিশ্চিত?'))S=structuredClone(DEF);else return false}};
+function tick(){FS.left=Math.max(0,Math.round((FS.end-Date.now())/1000));if(FS.left<=0){clearInterval(FS.id);FS.run=false;S.fm[dk()]=(S.fm[dk()]||0)+FS.min;FS.left=FS.min*60;save();toast('Focus session শেষ 🎉');render();return}const e=$('#tm'),a=$('#fa');if(e)e.textContent=fmt(FS.left);if(a)a.style.strokeDashoffset=C*(1-FS.left/(FS.min*60))}
+function say(t){if(!('speechSynthesis' in window)){toast('এই ব্রাউজারে শোনার সুবিধা নেই');return}speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang='en-US';u.rate=.85;speechSynthesis.speak(u)}
+function gcal(title,det,hm,dur,rec){const q=hm.split(':').map(Number),s=new Date(),f=d=>d.getFullYear()+pad(d.getMonth()+1)+pad(d.getDate())+'T'+pad(d.getHours())+pad(d.getMinutes())+'00';s.setHours(q[0],q[1],0,0);if(s<new Date())s.setDate(s.getDate()+1);const e=new Date(s.getTime()+dur*6e4);window.open('https://calendar.google.com/calendar/render?action=TEMPLATE&text='+encodeURIComponent(title)+'&details='+encodeURIComponent(det)+'&dates='+f(s)+'/'+f(e)+'&ctz='+encodeURIComponent(Intl.DateTimeFormat().resolvedOptions().timeZone)+(rec?'&recur=RRULE:FREQ=DAILY':''),'_blank')}
+const NL={};
+function notify(){if(!S.nf||typeof Notification==='undefined'||Notification.permission!=='granted')return;const n=new Date(),hm=pad(n.getHours())+':'+pad(n.getMinutes()),p=S.missions.filter(m=>!S.aw[dk()+'|'+m.id]).length;[[S.al,'MOINEIQ',p?`আজ ${p}টি মিশন বাকি। ছোট একটি ধাপ নিন।`:''],[S.wal,'💧 পানি',`আজ ${S.water[dk()]||0}/${S.goal} গ্লাস। এক গ্লাস খান।`]].forEach(x=>{const k=dk()+x[0]+x[1];if(x[2]&&x[0]===hm&&!NL[k]){NL[k]=1;try{new Notification(x[1],{body:x[2]})}catch(e){}}})}
+const NAV=[['home','🎯','আজ'],['focus','⏰','Focus'],['shield','🛡️','Shield'],['plan','🗓️','Plan'],['more','✨','আরও']];
+function render(){$('#app').innerHTML=V[U.tab]();$('#nav').innerHTML=NAV.map(n=>`<button class="${U.tab==n[0]?'on':''}" data-a="tab" data-v="${n[0]}"><i>${n[1]}</i>${n[2]}</button>`).join('')}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-a]');if(!b)return;if(A[b.dataset.a](b.dataset.v)!==false){save();render()}});
+document.addEventListener('input',e=>{if(e.target.id==='rf'){S.refl[dk()]=e.target.value.slice(0,1000);save()}});
+document.addEventListener('change',e=>{if(e.target.id==='al'||e.target.id==='wal'){S[e.target.id]=e.target.value||S[e.target.id];save()}if(e.target.id==='fl'&&e.target.files[0]){const r=new FileReader();r.onload=()=>{$('#js').value=String(r.result).slice(0,2e6)};r.readAsText(e.target.files[0])}});
+(function(){let seen;try{seen=sessionStorage.getItem('sp');sessionStorage.setItem('sp','1')}catch(e){}const sp=$('#splash');if(seen){sp.remove();return}sp.innerHTML=`<img src="${LOGO}" alt="MOINEIQ: Build Better Days">`;setTimeout(()=>{sp.style.opacity=0;setTimeout(()=>sp.remove(),700)},1500)})();
+render();setInterval(notify,20000);
+if('serviceWorker' in navigator)addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));
+</script>
+</body>
+</html>
